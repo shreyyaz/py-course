@@ -1,0 +1,28 @@
+# *args= allows you to pass multiple non-key arguments
+# **kwargs= allows you to pass multiple keyword-arguments.
+
+def add(*args):
+    print(type(args))
+    total=0
+    for i in args:
+        total+=i
+    return total
+print(add(1,2))
+
+
+def display_name(*args): #cannot write like display-name
+    for i in args:
+        print(i, end=" ")
+display_name("Bro","Code")  #can add middle name also through this
+
+def print_address(**kwargs):
+    print(type(kwargs))     
+    #when you do kwargs.items() it converts the dictionary entries into key-value pairs as TUPLES.
+    #Dictionary itself is NOT becoming tuple permanently.
+    for x,y in kwargs.items():  #key,value also works    #this loop means take each tuple put first thing into x put second thing into y. so it puts the first item like key in x and second item like value in y
+        print(f"{x}:{y}")       #key,value also works   
+    for y in kwargs.values():
+        print(y)
+print(print_address(street=" 123 Fake St", city="Detroit", state="MI", zip="54321"))
+
+
